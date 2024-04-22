@@ -4,7 +4,7 @@
 set -o errexit
 
 # install dependencies
-pip install -r memories/requirements.txt
+pip install -r requirements.txt
 
 # run migration
 python manage.py migrate
