@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'memory',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,32 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # CHANGE FOR DEPLOYMENT
 CORS_ALLOWED_ORIGINS = ['http://123.0.0.1:5173', 'http://localhost:5173']
+
+
+# AWS confg
+
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+
+# storage config for bucket
+AWS_STORAGE_BUCKET_NAME = 'memories-bucket-2024'
+
+# custom url or domain
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME 
+
+# when you upload files, aws will ensure no names are the same
+AWS_S3_FILE_OVERWRITE = False
+
+# django above 4.2
+
+STORAGES = {
+    # media file management
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+    
+    # css and js file
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+}

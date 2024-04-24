@@ -4,7 +4,7 @@
 - **App**: Memorial Moments
 - **Description**: Somewhat like Facebook and your own personal diary. A place for you to store events, pictures of said events, who attended, and much more
 
-- **Deployed**:
+- **Deployed**: https://capstone-be-6ayz.onrender.com/api/
 
 ## Dependencies
 - TBD
